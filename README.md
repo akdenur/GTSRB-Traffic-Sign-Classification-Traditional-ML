@@ -1,46 +1,46 @@
-# GTSRB Traffic Sign Classification — Traditional Machine Learning
+# GTSRB Trafik Levhası Sınıflandırma — Geleneksel Makine Öğrenmesi
 
-A comparative analysis of traditional computer vision and machine learning pipelines on the **German Traffic Sign Recognition Benchmark (GTSRB)** dataset. This project establishes a strong classical baseline using handcrafted feature extraction, dimensionality reduction, and classical classifiers, achieving **98.72% test accuracy** with SVM.
+**Alman Trafik Levhası Tanıma Veri Kümesi (GTSRB)** üzerinde geleneksel görüntü işleme ve makine öğrenmesi yaklaşımlarının karşılaştırmalı analizi. Bu çalışma, el ile tasarlanmış (handcrafted) öznitelik çıkarımı, boyut indirgeme ve klasik sınıflandırıcılar kullanarak **%98,72 test doğruluğu** elde eden güçlü bir referans noktası (baseline) sunmaktadır.
 
-## Project Overview
+## Proje Özeti
 
-Traffic sign recognition is a critical task for autonomous driving and advanced driver-assistance systems (ADAS). In this study, raw traffic sign images are processed through a structured traditional machine learning pipeline to evaluate the capabilities and performance boundaries of manual feature engineering before transitioning to Deep Learning architectures.
+Trafik levhası tanıma, otonom sürüş ve gelişmiş sürücü destek sistemleri (ADAS) için kritik bir problemdir. Bu çalışmada ham trafik levhası görüntüleri sistematik bir geleneksel makine öğrenmesi hattından geçirilerek, derin öğrenme mimarilerine geçmeden önce manuel öznitelik mühendisliğinin başarım sınırları incelenmiştir.
 
-### Dataset
-- **Source:** German Traffic Sign Recognition Benchmark (GTSRB)
-- **Classes:** 43 traffic sign categories (speed limits, prohibitory, danger, and mandatory signs)
-- **Total Samples:** 39,209 labeled images
+### Veri Kümesi
+- **Kaynak:** German Traffic Sign Recognition Benchmark (GTSRB)
+- **Sınıf Sayısı:** 43 trafik levhası kategorisi (hız sınırları, yasaklama, tehlike uyarı ve mecburi yön işaretleri)
+- **Toplam Görüntü:** 39.209 etiketli görüntü
 
-## Methodology
+## Yöntem
 
-1. **Image Preprocessing (OpenCV):**
-   - Standardization of varying image resolutions and aspect ratios.
-   - Color space transformations and Canny edge detection.
-2. **Hybrid Feature Extraction:**
-   - **HOG (Histogram of Oriented Gradients):** Captures edge orientations and structural shapes.
-   - **LBP (Local Binary Patterns):** Extracts local texture descriptors.
-   - **Canny Edge Features:** Highlights structural boundaries.
-3. **Dimensionality Reduction:**
-   - **PCA (Principal Component Analysis):** Compresses high-dimensional feature vectors while preserving maximum variance to optimize training time and prevent overfitting.
-4. **Classification Models:**
-   - **Random Forest (RF)**
-   - **Support Vector Machines (SVM)**
+1. **Görüntü Ön İşleme (OpenCV):**
+   - Farklı çözünürlük ve en-boy oranlarına sahip görüntülerin standartlaştırılması.
+   - Renk uzayı dönüşümleri ve Canny kenar tespiti.
+2. **Hibrit Öznitelik Çıkarımı:**
+   - **HOG (Yönlendirilmiş Gradyan Histogramları):** Kenar yönelimlerini ve şekil yapısını yakalar.
+   - **LBP (Yerel İkili Örüntüler):** Yerel doku (texture) özniteliklerini çıkarır.
+   - **Canny Kenar Öznitelikleri:** Yapısal sınırları belirginleştirir.
+3. **Boyut İndirgeme:**
+   - **PCA (Temel Bileşen Analizi):** Yüksek boyutlu öznitelik vektörlerini maksimum varyansı koruyarak sıkıştırır, eğitim süresini optimize eder ve aşırı öğrenmeyi (overfitting) azaltır.
+4. **Sınıflandırma Modelleri:**
+   - **Rastgele Orman (Random Forest)**
+   - **Destek Vektör Makineleri (SVM)**
 
-## Key Results & Findings
+## Temel Bulgular
 
-- **Best Model:** Support Vector Machines (SVM) with hybrid features (HOG + LBP + Canny) and PCA achieved **98.72% test accuracy**.
-- **Performance Limitations:** Manual feature engineering reaches a natural performance ceiling on visually similar speed limit signs (e.g., Class 5) and under severe illumination, motion blur, or low-contrast distortions.
-- **Next Step:** These results serve as the classical baseline for the follow-up study: *GTSRB Traffic Sign Classification with Deep Learning (Custom CNN & MobileNetV2)*.
+- **En İyi Model:** Hibrit öznitelikler (HOG + LBP + Canny) ve PCA ile eğitilen **SVM** modeli **%98,72 test doğruluğu** elde etmiştir.
+- **Performans Sınırları:** Manuel öznitelik mühendisliği, özellikle görsel olarak birbirine çok benzeyen hız sınırı levhalarında (örneğin Sınıf 5) ve aşırı ışık, bulanıklık veya düşük kontrast bozulmalarında doğal bir performans tavanına ulaşmaktadır.
+- **Sonraki Aşama:** Bu çalışmada elde edilen sonuçlar, devam niteliğindeki [Derin Öğrenme (Özel CNN ve MobileNetV2)](https://github.com/akdenur/GTSRB-Traffic-Sign-Classification-Deep-Learning) çalışması için temel kıyaslama noktası olarak kullanılmıştır.
 
-## Tech Stack
+## Kullanılan Teknolojiler
 
-- **Language:** Python
-- **Environment:** Google Colab
-- **Libraries:** Scikit-learn, OpenCV, NumPy, Pandas, Matplotlib, Seaborn
+- **Dil:** Python
+- **Ortam:** Google Colab
+- **Kütüphaneler:** Scikit-learn, OpenCV, NumPy, Pandas, Matplotlib, Seaborn
 
-## Repository Structure
+## Depo Yapısı
 
 ```text
-├── GTSRB_Traditional_ML_Pipeline.ipynb   # End-to-end training & evaluation notebook
-├── GTSRB_Traditional_ML_Report.pdf       # Detailed academic project report (IEEE style)
-└── README.md                             # Project documentation
+├── GTSRB_Traditional_ML_Pipeline.ipynb   # Uçtan uca eğitim ve değerlendirme notebook'u
+├── GTSRB_Traditional_ML_Report.pdf       # IEEE formatında detaylı akademik proje raporu
+└── README.md                             # Proje dokümantasyonu
